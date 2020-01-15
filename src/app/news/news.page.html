@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let article of data?.articles" (click)="gotoNews(article)">
+    <ion-img [src]="article?.urlToImage"></ion-img>
+    <ion-card-content>
+      <ion-header padding-vertical margin-bottom>{{article?.author}}</ion-header>
+      <ion-card-subtitle>{{article?.publishedAt}}</ion-card-subtitle>
+      <h2>{{article?.title}}</h2>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-refresher slot="fixed" (ionRefresh)="dorefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="news"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{singleArticle.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img [src]="singleArticle?.urlToImage"></ion-img>
+    <ion-card-subtitle padding>{{singleArticle?.description}}</ion-card-subtitle>
+    <ion-card-content>{{singleArticle?.content}}</ion-card-content>
+  </ion-card>
+</ion-content>
