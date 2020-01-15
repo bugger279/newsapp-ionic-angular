@@ -5,14 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let article of data?.articles" (click)="gotoNews(article)">
-    <ion-img [src]="article?.urlToImage"></ion-img>
-    <ion-card-content>
-      <ion-header padding-vertical margin-bottom>{{article?.author}}</ion-header>
-      <ion-card-subtitle>{{article?.publishedAt}}</ion-card-subtitle>
-      <h2>{{article?.title}}</h2>
-    </ion-card-content>
-  </ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col size-xs="12" size-sm="6" offset-sm="3" size-md="6" offset-md="3">
+      <ion-card *ngFor="let article of data?.articles" (click)="gotoNews(article)">
+        <ion-img [src]="article?.urlToImage"></ion-img>
+        <ion-card-content>
+          <ion-header padding-vertical margin-bottom>{{article?.author}}</ion-header>
+          <ion-card-subtitle>{{article?.publishedAt}}</ion-card-subtitle>
+          <h2>{{article?.title}}</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
   <ion-refresher slot="fixed" (ionRefresh)="dorefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
